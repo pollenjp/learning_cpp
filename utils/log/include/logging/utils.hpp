@@ -53,30 +53,33 @@ std::string GetDatetime()
 }
 
 std::string ReplaceAllStr(std::string &replaced_str, std::string from, std::string to)
-// TODO : unsigned int を指定しなければ size_t が
-//        signed int として扱われる環境があったため明示的に
-//        unsigned int にしているがもっと安定した方法に変えたい
 {
-	// https://www.sejuku.net/blog/54493
-	unsigned int pos = (unsigned int) replaced_str.find(from);
-	const int to_len = to.length();
+<<<<<<< Updated upstream
+=======
+	// ref : https://www.sejuku.net/blog/54493
+	size_t pos = replaced_str.find(from);
+	const size_t to_len = to.length();
 
+>>>>>>> Stashed changes
 	if (from.empty())
 	{
 		return replaced_str;
 	}
 
+	// https://www.sejuku.net/blog/54493
+	unsigned int pos = (unsigned int) replaced_str.find(from);
+	const int to_len = to.length();
+
 	while (true)
 	{
-		pos = (unsigned int) replaced_str.find(from, pos);
+		pos = replaced_str.find(from, pos);
 		// std::cout << "pos: " << pos << std::endl;
-		if (pos == (unsigned int) std::string::npos){ break; }
+		if (pos == std::string::npos){ break; }
 		// std::cout << std::string::npos << std::endl;
 		replaced_str.replace(pos, from.length(), to);
-		pos += to_len;
+		pos +=  to_len;
 	}
 	return replaced_str;
 }
-
 
 }
