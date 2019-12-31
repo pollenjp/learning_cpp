@@ -8,16 +8,16 @@ namespace logging
 class LogRecord
 {
 public:
-    std::string name;
-    logging::LoggingLevel level;
-    std::string msg;
+	std::string name;
+	logging::LoggingLevel level;
+	std::string msg;
 
 public:
-    LogRecord(
-        std::string name,
-        logging::LoggingLevel level,
-        std::string msg
-    ) : name(name), level(level), msg(msg) {}
+	LogRecord(
+		std::string name,
+		logging::LoggingLevel level,
+		std::string msg
+	) : name(name), level(level), msg(msg) {}
 
 };
 
